@@ -17,4 +17,15 @@ interface IReward {
     function getGrantReward(address) external view returns (uint256);
 
     function claimReward() external;
+
+    function create_red_packet (bytes32 , uint , bool , uint , 
+                                bytes32 , string memory, string memory, 
+                                uint, address , uint ) external;
+
+    function refund(bytes32) external;
+
+    function check_availability(bytes32) external view returns ( address, uint, uint, 
+                                                                    uint , bool , uint256); 
+
+    function claim(bytes32 , bytes32[] memory , address payable) external returns (uint);
 }
