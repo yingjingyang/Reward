@@ -27,7 +27,7 @@ async function main() {
   );
 
   // Deploy Contract Reward
-  const rewardFactory = await hre.ethers.getContractFactory("Reward");
+  const rewardFactory = await hre.ethers.getContractFactory("HappyRedPacket");
   const reward = await rewardFactory.deploy();
   await reward.deployed();
 
@@ -55,7 +55,7 @@ async function main() {
   );
 
   // Set manager address
-  let artifactRouter = artifacts.readArtifactSync("IReward");
+  let artifactRouter = artifacts.readArtifactSync("IHappyRedPacket");
   let ireward = new ethers.Contract(transparentUpgradeableProxy.address, artifactRouter.abi , admin );
 
   let setAdminRecipt = await ireward.setManager(admin.address);
